@@ -1,18 +1,18 @@
 databases:
-  - name: vue-todo
-    databaseName: vue-todo
-    user: vue-todo
+  - name: vue_todo
+    databaseName: vue_todo
+    user: vue_todo
 
 services:
   - type: web
-    name: vue-todo
+    name: vue_todo
     env: ruby
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: vue-todo
+          name: vue_todo
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
